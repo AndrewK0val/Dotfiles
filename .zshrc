@@ -1,25 +1,6 @@
-# Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-#
-#eval "$(oh-my-posh init zsh)"
-
-
-ZSH_THEME="agnoster"
-
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+ CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -36,12 +17,6 @@ ZSH_THEME="agnoster"
 # Uncomment the following line if pasting URLs and other text is messed up.
   DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
@@ -49,7 +24,7 @@ ZSH_THEME="agnoster"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -63,7 +38,7 @@ ZSH_THEME="agnoster"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY="completion"
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -78,6 +53,7 @@ plugins=(
 	git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
+	zsh-vi-mode
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -114,7 +90,11 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="$PATH:$HOME/Users/akoval/.local/bin/lvim"
 
-
+export GOPATH=$HOME/go 
+export GOROOT=/usr/local/go 
+export GOBIN=$GOPATH/bin 
+export PATH=$PATH:$GOPATH 
+export PATH=$PATH:$GOROOT/bin 
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -125,7 +105,7 @@ alias python=python3
 alias pip=pip3
 
 
-# alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/OMP-theme-v1.json)"
 
-# Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+export GO111MODULE=auto
